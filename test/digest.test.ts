@@ -3,10 +3,11 @@ import { readNight, readNightWithDiagnostics } from '../src/digest/read-night.js
 
 describe('night digest reader', () => {
   it('aggregates the 2026-10-28 fixture and counts its malformed line', () => {
-    const { rows, malformedLines } = readNightWithDiagnostics('runs', '2026-10-28');
+    const { rows, malformedLines, statusCounts } = readNightWithDiagnostics('runs', '2026-10-28');
 
     expect(rows).toHaveLength(5);
     expect(malformedLines).toBe(1);
+    expect(statusCounts).toEqual({ ok: 10, retry: 4, fail: 1 });
     expect(rows.find((row) => row.job === 'lane/sync')).toEqual({
       job: 'lane/sync',
       owner: 'rook',

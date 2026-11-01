@@ -5,6 +5,7 @@ import type { DigestRow, DigestStatus, ReadNight } from './types.js';
 export type ReadNightResult = {
   rows: DigestRow[];
   malformedLines: number;
+  statusCounts: Record<DigestStatus, number>;
 };
 
 type RunRecord = {
@@ -40,6 +41,7 @@ export function readNightWithDiagnostics(runsDir: string, night: string): ReadNi
 
   const rows = new Map<string, DigestRow>();
   let malformedLines = 0;
+  const statusCounts: Record<DigestStatus, number> = { ok: 0, retry: 0, fail: 0 };
 
   for (const line of lines) {
     let value: unknown;
@@ -54,6 +56,8 @@ export function readNightWithDiagnostics(runsDir: string, night: string): ReadNi
       malformedLines += 1;
       continue;
     }
+
+    statusCounts[value.status] += 1;
 
     const row = rows.get(value.job);
     if (row) {
@@ -77,7 +81,7 @@ export function readNightWithDiagnostics(runsDir: string, night: string): ReadNi
     }
   }
 
-  return { rows: [...rows.values()], malformedLines };
+  return { rows: [...rows.values()], malformedLines, statusCounts };
 }
 
 /** Read the valid rows from one night's log; malformed records are skipped. */
