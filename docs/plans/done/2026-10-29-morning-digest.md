@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-11-01
 ---
 
 # Morning digest
@@ -77,3 +78,15 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|------------|--------|--------|
+| 1 | [Run log reader](https://github.com/cmjr86/rig-handover-s01e04/issues/1) | — | OpenCode · openrouter/openai/gpt-6-luna · unknown | 2026-11-01 |
+| 2 | [Digest page](https://github.com/cmjr86/rig-handover-s01e04/issues/2) | #1 | OpenCode · openrouter/openai/gpt-6-luna · unknown | 2026-11-01 |
+| 3 | [Digest JSON API](https://github.com/cmjr86/rig-handover-s01e04/issues/3) | #1 | OpenCode · openrouter/openai/gpt-6-luna · unknown | 2026-11-01 |
+| 4 | [Board digest links](https://github.com/cmjr86/rig-handover-s01e04/issues/4) | #1 | OpenCode · openrouter/openai/gpt-6-luna · unknown | 2026-11-01 |
+| 5 | [Digest route tests](https://github.com/cmjr86/rig-handover-s01e04/issues/5) | #2, #3 | OpenCode · openrouter/openai/gpt-6-luna · unknown | 2026-11-01 |
+| 6 | [Publish digest preview](https://github.com/cmjr86/rig-handover-s01e04/issues/6) | #2 | OpenCode · openrouter/openai/gpt-6-luna · unknown | 2026-11-01 |
+| 7 | [Remove marker and archive plan](https://github.com/cmjr86/rig-handover-s01e04/issues/7) | #6, reviewer sign-off | OpenCode · openrouter/openai/gpt-6-luna · unknown | — |
